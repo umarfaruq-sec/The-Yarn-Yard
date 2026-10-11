@@ -87,7 +87,7 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
 
 <header>
  <div class="wrap">
-  <a class="logo" href="#top"><img src="images/logo.png" alt="" onerror="this.remove()">The Yarn Yard</a>
+  <a class="logo" href="#top"><img src="logo.png" alt="" onerror="this.remove()">The Yarn Yard</a>
   <nav aria-label="Main">
    <a href="#shop">Shop</a><a href="#custom">Custom orders</a><a href="#how">How to order</a><a href="#about">About</a><a href="#contact">Contact</a>
   </nav>
@@ -106,7 +106,7 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
      <a class="btn alt" id="heroWa" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
     </div>
    </div>
-   <div class="slot heroimg"><span class="emo">🧶</span><img src="images/products/keila%20top.jpeg" alt="Crochet pieces from The Yarn Yard" onerror="this.remove()"></div>
+   <div class="slot heroimg"><span class="emo">🧶</span><img src="keila%20top.jpeg" alt="Crochet pieces from The Yarn Yard" onerror="this.remove()"></div>
   </div>
  </div>
 
@@ -133,7 +133,7 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
     </ul>
     <a class="btn" id="customWa" target="_blank" rel="noopener" href="#">Start a custom order</a>
    </div>
-   <div class="slot" style="aspect-ratio:4/3;border-radius:28px;border:6px solid #fff;background:linear-gradient(135deg,var(--sun),var(--pink))"><span class="emo">🎨</span><img src="images/custom.jpg" alt="A custom crochet order" onerror="this.remove()"></div>
+   <div class="slot" style="aspect-ratio:4/3;border-radius:28px;border:6px solid #fff;background:linear-gradient(135deg,var(--sun),var(--pink))"><span class="emo">🎨</span><img src="custom.jpg" alt="A custom crochet order" onerror="this.remove()"></div>
   </div>
  </section>
 
@@ -153,7 +153,7 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
 
  <section id="about">
   <div class="wrap">
-   <div class="slot aboutimg"><span class="emo">🧵</span><img src="images/saadatu.jpg" alt="Saadatu, founder of The Yarn Yard" onerror="this.remove()"></div>
+   <div class="slot aboutimg"><span class="emo">🧵</span><img src="saadatu.jpg" alt="Saadatu, founder of The Yarn Yard" onerror="this.remove()"></div>
    <div>
     <h2>Meet Saadatu</h2>
     <p>Being able to stand out and curate pieces with the same fingers everyone else has is the greatest blessing I could ever ask for. I started this brand with nothing but optimism. I had never crocheted any big piece before, but something deep inside assured me that I'd make the best out of just a hook and yarn.</p>
@@ -229,7 +229,7 @@ const IMG={
 "Bouquet of 10 Roses":"bouque.jpeg",
 "Bouquet of 20 Roses":"bouquet of 20 reoses.jpeg"
 };
-const imgSrc=n=>"images/products/"+encodeURIComponent(IMG[n]||"none.jpeg");
+const imgSrc=n=>encodeURIComponent(IMG[n]||"none.jpeg");
 const cats=["All",...new Set(P.map(p=>p[2]))];
 let cur="All";
 function draw(){
