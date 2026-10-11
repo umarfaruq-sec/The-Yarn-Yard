@@ -106,7 +106,7 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
      <a class="btn alt" id="heroWa" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
     </div>
    </div>
-   <div class="slot heroimg"><span class="emo">🧶</span><img src="images/hero.jpg" alt="Crochet pieces from The Yarn Yard" onerror="this.remove()"></div>
+   <div class="slot heroimg"><span class="emo">🧶</span><img src="images/products/keila%20top.jpeg" alt="Crochet pieces from The Yarn Yard" onerror="this.remove()"></div>
   </div>
  </div>
 
@@ -194,13 +194,48 @@ const P=[
 ];
 const EMO={"Bags":"👜","Tops and sets":"👚","Kids":"🧸","Hats and beanies":"🧶","Accessories":"🎀","Roses":"🌹","Home":"🧺"};
 const BG=["linear-gradient(135deg,#ff4f8b,#ffc233)","linear-gradient(135deg,#6f4cff,#12b5a6)","linear-gradient(135deg,#ffc233,#ff4f8b)","linear-gradient(135deg,#12b5a6,#ffc233)","linear-gradient(135deg,#ffc233,#6f4cff)"];
-const slug=n=>n.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+const IMG={
+"Sling Bag":"sling bag.jpeg",
+"Mini Sling Bag":"sling bag2.jpeg",
+"Tote Bag":"Tote bag.jpeg",
+"Sturdy Mini Bag":"bag.jpeg",
+"Ruffle Shoulder Bag":"ruffle shoulder bag.jpeg",
+"Shoulder Bag":"shoulder bag.jpeg",
+"Ruffle Mini Bag":"ruffle bag mini.jpeg",
+"Keila Top (Pink)":"keila top.jpeg",
+"SA Set":"SA set.jpeg",
+"Skirt and Top Combo":"skirt and top combo.jpeg",
+"Bikini":"bikini.jpeg",
+"Bralette":"bralete.jpeg",
+"Shirt":"shirt.jpeg",
+"Shrug and Ruffle Combo (Kids)":"wrap.jpeg",
+"Kids Dress Set":"bby cloth.jpeg",
+"Top and Skirt Set (Kids)":"top and skirt for kids.jpeg",
+"Customised Kids Beanie":"customized beanie for kids.jpeg",
+"Ruffle Hat":"ruffle hats.jpeg",
+"Minimalist Ruffle Hat":"ruffle hats.jpeg",
+"Slouchy Beanie":"slouchy beanie.jpeg",
+"Customised Beanie":"customized beanie.jpeg",
+"Spider-Man Beanie":"spiderman beanie.jpeg",
+"Odumodu Hat":"odumodu hats.jpeg",
+"Bandana":"bandanas.jpeg",
+"Earrings":"earings.jpeg",
+"Cherry Charms":"cherry charms.jpeg",
+"Airpods Pouch":"Airpods pouch.jpeg",
+"Scarf / Hair Clips":"bow.jpeg",
+"Phone Pouch":"phone pouch.jpeg",
+"Power Bank Holder":"power bank holder.jpeg",
+"Single Rose":"single rose.jpeg",
+"Bouquet of 10 Roses":"bouque.jpeg",
+"Bouquet of 20 Roses":"bouquet of 20 reoses.jpeg"
+};
+const imgSrc=n=>"images/products/"+encodeURIComponent(IMG[n]||"none.jpeg");
 const cats=["All",...new Set(P.map(p=>p[2]))];
 let cur="All";
 function draw(){
  document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join("");
  document.getElementById("grid").innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==="All"||p[2]===cur).map(([p,i])=>
- `<article class="card"><div class="slot" style="background:${BG[i%5]}"><span class="emo">${EMO[p[2]]}</span><img src="images/products/${slug(p[0])}.jpg" alt="${p[0]}" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>${p[0]}</h3><p class="price">${p[1]}</p><a class="btn sm" target="_blank" rel="noopener" href="${wa("Hi The Yarn Yard! I'd like to order: "+p[0]+" ("+p[1]+")")}">Order on WhatsApp</a></div></article>`).join("");
+ `<article class="card"><div class="slot" style="background:${BG[i%5]}"><span class="emo">${EMO[p[2]]}</span><img src="${imgSrc(p[0])}" alt="${p[0]}" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>${p[0]}</h3><p class="price">${p[1]}</p><a class="btn sm" target="_blank" rel="noopener" href="${wa("Hi The Yarn Yard! I'd like to order: "+p[0]+" ("+p[1]+")")}">Order on WhatsApp</a></div></article>`).join("");
 }
 document.getElementById("chips").addEventListener("click",e=>{const c=e.target.dataset.c;if(c){cur=c;draw();}});
 draw();
