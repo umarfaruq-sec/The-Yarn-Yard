@@ -9,92 +9,191 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<script>if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches)document.documentElement.classList.add("js")</script>
 <style>
-:root{--pink:#ff4f8b;--sun:#ffc233;--teal:#12b5a6;--violet:#6f4cff;--base:#fbf7ff;--ink:#2a1b3d}
+:root{--pink:#ff4f8b;--sun:#ffc233;--teal:#12b5a6;--violet:#6f4cff;--base:#fffafc;--ink:#2a1b3d;--mut:#6b5b7b;--sh:0 14px 34px -16px rgba(42,27,61,.35)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Nunito',system-ui,sans-serif;background:var(--base);color:var(--ink);line-height:1.65;font-size:17px}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Nunito',system-ui,sans-serif;background:var(--base);color:var(--ink);line-height:1.65;font-size:17px;overflow-x:hidden}
 h1,h2,h3,.logo{font-family:'Fredoka',system-ui,sans-serif;line-height:1.1}
-a{color:inherit}
-img{max-width:100%;display:block}
+a{color:inherit}img{max-width:100%;display:block}
 :focus-visible{outline:3px solid var(--violet);outline-offset:3px}
-.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-section{padding:72px 0}
-h2{font-size:clamp(2rem,5vw,2.8rem);margin-bottom:12px}
-.lead{max-width:60ch;margin-bottom:32px}
-.btn{display:inline-block;background:var(--pink);color:#fff;font-weight:800;text-decoration:none;padding:13px 24px;border-radius:999px;border:0;cursor:pointer;font-size:1rem;font-family:inherit}
-.btn:hover{background:var(--violet)}
-.btn.alt{background:var(--ink)}
-.btn.sm{padding:9px 16px;font-size:.9rem}
-header{position:sticky;top:0;z-index:10;background:var(--base);border-bottom:3px dashed var(--pink)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
-.logo{display:flex;align-items:center;gap:10px;font-size:1.5rem;font-weight:700;text-decoration:none}
-.logo img{height:42px;width:auto}
-.logo img:not([src]){display:none}
-nav{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
-nav a{text-decoration:none;font-weight:800}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+section{padding:88px 0}
+.tag{display:inline-block;font-weight:800;font-size:.85rem;color:var(--pink);background:#ffe3ee;padding:5px 14px;border-radius:999px;margin-bottom:14px}
+h2{font-size:clamp(2rem,4.5vw,2.9rem);margin-bottom:12px}
+.lead{max-width:58ch;color:var(--mut);margin-bottom:34px}
+.btn{display:inline-block;background:var(--pink);color:#fff;font-weight:800;text-decoration:none;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;font-size:1rem;font-family:inherit;box-shadow:0 10px 20px -10px var(--pink);transition:transform .15s,background .15s}
+.btn:hover{background:var(--violet);transform:translateY(-2px)}
+.btn.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.btn.sm{padding:10px 16px;font-size:.88rem;box-shadow:none}
+header{position:sticky;top:0;z-index:20;background:#fffafcdd;backdrop-filter:blur(12px);border-bottom:1px solid #2a1b3d14}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+.logo{display:flex;align-items:center;gap:10px;font-size:1.45rem;font-weight:700;text-decoration:none}
+.logo img{height:40px;width:auto}
+nav{display:flex;gap:26px;align-items:center}
+nav a{text-decoration:none;font-weight:800;font-size:.95rem}
 nav a:hover{color:var(--pink)}
-.hero{padding:56px 0 72px;background:linear-gradient(180deg,#fff2c9 0,var(--base) 100%)}
-.hero .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(2.8rem,8vw,5.4rem);font-weight:700;color:var(--violet)}
-.hero h1 span{color:var(--pink)}
-.stitch{display:block;width:min(420px,90%);height:14px;margin:14px 0 22px}
-.hero p{max-width:46ch;margin-bottom:26px;font-size:1.1rem}
-.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
-.slot{position:relative;overflow:hidden;background:var(--sun)}
-.slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.slot .emo{position:absolute;inset:0;display:grid;place-items:center;font-size:3.2rem}
-.heroimg{aspect-ratio:4/5;border-radius:42% 58% 46% 54%/ 38% 42% 58% 62%;background:linear-gradient(135deg,var(--pink),var(--sun));border:6px solid #fff;box-shadow:12px 12px 0 var(--teal)}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-.chip{font-family:inherit;font-weight:800;font-size:.95rem;padding:8px 18px;border-radius:999px;border:2px solid var(--ink);background:#fff;cursor:pointer;color:var(--ink)}
-.chip[aria-pressed=true]{background:var(--ink);color:#fff}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
-.card{background:#fff;border:2px solid var(--ink);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
-.card .slot{aspect-ratio:1/1}
-.card .info{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.card h3{font-size:1.2rem}
-.price{font-weight:800;color:var(--pink);font-size:1.1rem;margin-bottom:6px}
-.card .btn{margin-top:auto;text-align:center}
+.acts{display:flex;gap:8px;align-items:center}
+.menu,.cartbtn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:9px 16px;font:800 .9rem 'Nunito',sans-serif;cursor:pointer}
+.menu{display:none}
+.cartbtn{display:flex;align-items:center;gap:8px;background:var(--pink)}
+.cartbtn b{background:#fff;color:var(--pink);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:.78rem;padding:0 6px}
+.hero{padding:56px 0 70px;background:radial-gradient(circle at 85% 20%,#ffe7a8 0,transparent 45%),radial-gradient(circle at 5% 90%,#ffd3e4 0,transparent 40%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(3rem,7.5vw,5.6rem);font-weight:700;margin-bottom:18px}
+.hero h1 em{font-style:normal;color:var(--pink);background:linear-gradient(transparent 62%,#ffc23380 0)}
+.hero p{max-width:46ch;color:var(--mut);font-size:1.12rem;margin-bottom:28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.stats{display:flex;gap:30px;margin-top:38px;flex-wrap:wrap}
+.stats b{display:block;font-family:'Fredoka',sans-serif;font-size:1.7rem;color:var(--violet)}
+.stats span{font-size:.88rem;color:var(--mut)}
+.collage{position:relative;aspect-ratio:1/1;width:100%;max-width:500px;margin:0 auto}
+.c{--r:0deg;transform:rotate(var(--r));animation:fl 7s ease-in-out infinite;position:absolute;border-radius:26px;border:6px solid #fff;box-shadow:var(--sh);overflow:hidden;background:var(--sun)}
+.c img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c1{width:58%;aspect-ratio:3/4;left:0;top:8%;--r:-4deg;background:linear-gradient(135deg,var(--violet),var(--pink))}
+.c2{width:46%;aspect-ratio:1;right:0;top:0;--r:5deg;animation-delay:-2s;background:linear-gradient(135deg,var(--teal),var(--sun))}
+.c3{width:48%;aspect-ratio:1;right:4%;bottom:0;--r:-3deg;animation-delay:-4s;background:linear-gradient(135deg,var(--pink),var(--sun))}
+.badge{position:absolute;left:4%;bottom:2%;width:112px;height:112px;border-radius:50%;background:var(--sun);display:grid;place-items:center;text-align:center;font:700 .95rem/1.15 'Fredoka',sans-serif;transform:rotate(-12deg);box-shadow:var(--sh);border:4px solid #fff}
+.mq{background:var(--ink);color:#fff;overflow:hidden;padding:14px 0}
+.mq div{display:flex;gap:40px;width:max-content;animation:slide 26s linear infinite;font:600 1.05rem 'Fredoka',sans-serif;white-space:nowrap}
+@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes fl{50%{transform:translateY(-10px) rotate(var(--r))}}
+@keyframes bump{50%{transform:scale(1.4)}}
+@media(prefers-reduced-motion:reduce){.mq div,.c{animation:none}html{scroll-behavior:auto}}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.chip{font-family:inherit;font-weight:800;font-size:.93rem;padding:9px 20px;border-radius:999px;border:0;background:#fff;box-shadow:inset 0 0 0 2px #2a1b3d26;cursor:pointer;color:var(--ink)}
+.chip:hover{box-shadow:inset 0 0 0 2px var(--pink)}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;box-shadow:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:24px}
+.card{background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh);transition:transform .2s}
+.card:hover{transform:translateY(-5px)}
+.slot{position:relative;overflow:hidden;aspect-ratio:4/5}
+.slot .emo{position:absolute;inset:0;display:grid;place-items:center;font-size:3rem}
+.card .slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
+.card .slot img.on{opacity:1}
+.ar{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:#ffffffe6;color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:0 4px 10px #0003;z-index:2}
+.ar.l{left:8px}.ar.r{right:8px}
+.cnt{position:absolute;left:10px;bottom:10px;background:#2a1b3dcc;color:#fff;font-size:.75rem;font-weight:800;padding:3px 10px;border-radius:999px;z-index:2}
+.info{padding:16px 18px 20px;display:flex;flex-direction:column;gap:4px;flex:1}
+.info h3{font-size:1.15rem}
+.price{font-weight:800;color:var(--pink);margin-bottom:10px}
+.info .btn{margin-top:auto;text-align:center}
 #custom{background:var(--teal);color:#fff}
-#custom .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-#custom ul{list-style:none;display:grid;gap:10px;margin:18px 0 26px}
-#custom li{background:#ffffff26;padding:12px 16px;border-radius:14px;font-weight:600}
-#custom .btn{background:var(--ink)}
+#custom .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+#custom .tag{background:#ffffff33;color:#fff}
+#custom .lead{color:#ffffffdd}
+#custom ul{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px}
+#custom li{background:#ffffff2e;padding:9px 18px;border-radius:999px;font-weight:700;font-size:.95rem}
+#custom .btn{background:var(--ink);box-shadow:none}
 #custom .btn:hover{background:#fff;color:var(--ink)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.step{padding:22px;border-radius:24px;border:2px solid var(--ink)}
-.step h3{font-size:1.3rem;margin-bottom:6px}
-.s1{background:#ffe3ee}.s2{background:#fff0c2}.s3{background:#d8f6f2}.s4{background:#e6defe}
-#about .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:44px;align-items:center}
-.aboutimg{aspect-ratio:1/1;border-radius:50%;border:6px solid #fff;box-shadow:-12px 12px 0 var(--pink);background:linear-gradient(135deg,var(--teal),var(--violet))}
+.cimg{aspect-ratio:4/3;border-radius:28px;border:6px solid #fff;box-shadow:var(--sh);background:linear-gradient(135deg,var(--sun),var(--pink));position:relative;overflow:hidden}
+.cimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.step{padding:26px;border-radius:24px;background:#fff;box-shadow:var(--sh)}
+.step i{font:700 1.1rem 'Fredoka',sans-serif;font-style:normal;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:#fff;margin-bottom:14px}
+.step:nth-child(1) i{background:var(--pink)}.step:nth-child(2) i{background:var(--violet)}.step:nth-child(3) i{background:var(--teal)}.step:nth-child(4) i{background:#e8a200}
+.step h3{font-size:1.25rem;margin-bottom:6px}
+.step p{color:var(--mut);font-size:.97rem}
+.note{margin-top:26px;font-weight:800;background:#fff2c9;display:inline-block;padding:10px 18px;border-radius:14px}
+#about{background:linear-gradient(180deg,#fff,#fff0f6)}
+#about .wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:center}
+.aimg{aspect-ratio:1/1;border-radius:50%;border:6px solid #fff;box-shadow:-14px 14px 0 var(--pink);background:linear-gradient(135deg,var(--teal),var(--violet));position:relative;overflow:hidden}
+.aimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 #about p{margin-bottom:14px}
-.sig{font-family:'Fredoka',sans-serif;font-size:1.3rem;color:var(--violet)}
+.sig{font:600 1.4rem 'Fredoka',sans-serif;color:var(--violet)}
 #contact{background:var(--ink);color:#fff}
-#contact .links{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin-top:24px}
-#contact a.box{display:block;background:#ffffff14;border:2px solid #ffffff40;border-radius:18px;padding:18px;text-decoration:none}
-#contact a.box:hover{border-color:var(--sun)}
-#contact b{display:block;font-family:'Fredoka',sans-serif;font-size:1.15rem;color:var(--sun)}
-.social{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
-.social a{width:54px;height:54px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;transition:transform .15s,background .15s}
-.social a:hover{background:var(--sun);transform:translateY(-3px)}
-.social svg{width:26px;height:26px}
-footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);color:#ffffffb3;border-top:1px solid #ffffff26}
-@media(max-width:800px){
+#contact .lead{color:#ffffffb3}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{display:flex;align-items:center;gap:14px;background:#ffffff12;border:1px solid #ffffff33;border-radius:18px;padding:16px 18px;text-decoration:none;transition:transform .15s,border-color .15s}
+.box:hover{border-color:var(--sun);transform:translateY(-3px)}
+.box .ic{flex:none;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center}
+.box svg{width:24px;height:24px}
+.box b{display:block;font:600 1.1rem 'Fredoka',sans-serif;color:var(--sun)}
+.box span{font-size:.93rem;word-break:break-word}
+.by{margin-top:8px;font-size:.9rem}.by a{color:var(--sun);font-weight:800;text-decoration:none}.by a:hover{text-decoration:underline}.by .chat{display:inline-block;margin-left:10px;background:#ffffff1f;padding:4px 14px;border-radius:999px;color:#fff;font-weight:700}.by .chat:hover{background:var(--pink);text-decoration:none}
+footer{padding:22px 0;text-align:center;font-size:.9rem;background:#1c1129;color:#ffffffa6}
+.js .rv{opacity:0;transform:translateY(30px) scale(.96);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.pg{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--pink),var(--sun));z-index:30}
+header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
+.btn:active,.cartbtn:active{transform:scale(.96)}
+.bump{animation:bump .35s}
+/* cart */
+.ov{position:fixed;inset:0;background:#2a1b3d88;opacity:0;pointer-events:none;transition:opacity .2s;z-index:40}
+.ov.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(460px,100%);background:#fff;z-index:50;transform:translateX(105%);transition:transform .28s;display:flex;flex-direction:column;box-shadow:-20px 0 40px #0003}
+.drawer.show{transform:none}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:16px 22px;border-bottom:1px solid #2a1b3d14}
+.dh h3{font-size:1.4rem}
+.x{background:#f3edf8;border:0;width:38px;height:38px;border-radius:50%;font-size:1.3rem;cursor:pointer;color:var(--ink)}
+.db{flex:1;overflow-y:auto;padding:8px 22px 20px}
+.it{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid #2a1b3d10}
+.th{width:60px;height:60px;border-radius:12px;background:linear-gradient(135deg,var(--sun),var(--pink));position:relative;overflow:hidden}
+.th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.it h4{font:600 1rem 'Fredoka',sans-serif}
+.it small{color:var(--mut);display:block}
+.q{display:flex;align-items:center;gap:8px;margin-top:4px}
+.q button{width:28px;height:28px;border-radius:50%;border:0;background:#f3edf8;cursor:pointer;font-weight:800;font-size:1rem;color:var(--ink)}
+.rm{background:none;border:0;color:var(--pink);font-weight:800;cursor:pointer;font-size:.85rem;font-family:inherit}
+.empty{text-align:center;padding:50px 10px;color:var(--mut)}
+.fm{display:grid;gap:10px;margin-top:20px}
+.fm h4{font:600 1.15rem 'Fredoka',sans-serif}
+.fm input,.fm textarea{width:100%;border:2px solid #2a1b3d1f;border-radius:14px;padding:12px 14px;font:inherit;background:#fff;color:var(--ink)}
+.fm input:focus,.fm textarea:focus{border-color:var(--violet);outline:0}
+.fm textarea{min-height:90px;resize:vertical}
+.df{padding:16px 22px 20px;border-top:1px solid #2a1b3d14;background:#fffafc}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem;margin-bottom:4px}
+.df small{display:block;color:var(--mut);margin-bottom:12px;font-size:.85rem;line-height:1.4}
+.df .btn{width:100%}
+.ok{text-align:center;padding:40px 6px}
+.ok h3{font-size:1.7rem;margin:12px 0 8px}
+.ok p{color:var(--mut);margin-bottom:10px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-weight:800;opacity:0;pointer-events:none;transition:.25s;z-index:60}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:860px){
+ section{padding:60px 0}
  .hero .wrap,#custom .wrap,#about .wrap{grid-template-columns:1fr}
- .heroimg{max-width:340px}
- .aboutimg{max-width:300px}
- section{padding:52px 0}
+ .collage{max-width:380px;order:-1}
+ .aimg{max-width:300px;margin:0 auto}
+ .menu{display:block}
+ nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--base);flex-direction:column;gap:0;padding:8px 22px 16px;border-bottom:1px solid #2a1b3d14}
+ nav.open{display:flex}
+ nav a{padding:12px 0;width:100%;border-bottom:1px solid #2a1b3d10}
+}
+@media(max-width:600px){
+ body{font-size:16px}
+ .logo{font-size:1.2rem}
+ .hero{padding:30px 0 50px}
+ .stats{gap:22px}
+ .btns .btn{flex:1;text-align:center}
+ .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:8px;margin-right:-22px;padding-right:22px}
+ .chip{white-space:nowrap}
+ .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+ .card{border-radius:16px}
+ .info{padding:11px 12px 14px}
+ .info h3{font-size:.98rem}
+ .price{font-size:.92rem;margin-bottom:8px}
+ .btn.sm{padding:9px 8px;font-size:.78rem}
+ .ar{width:30px;height:30px;font-size:1.2rem}
+ .badge{width:92px;height:92px;font-size:.8rem}
 }
 </style>
 </head>
 <body>
 
-<header>
- <div class="wrap">
+<div class="pg" id="pg"></div>
+<header id="hd">
+ <div class="wrap bar">
   <a class="logo" href="#top"><img src="logo.png" alt="" onerror="this.remove()">The Yarn Yard</a>
-  <nav aria-label="Main">
+  <nav id="nav" aria-label="Main">
    <a href="#shop">Shop</a><a href="#custom">Custom orders</a><a href="#how">How to order</a><a href="#about">About</a><a href="#contact">Contact</a>
   </nav>
+  <div class="acts">
+   <button class="cartbtn" id="cartbtn" aria-label="Open cart">🛍 Cart <b id="cc">0</b></button>
+   <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
  </div>
 </header>
 
@@ -102,22 +201,37 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
  <div class="hero">
   <div class="wrap">
    <div>
-    <h1>Look crafty and <span>reminisce</span></h1>
-    <svg class="stitch" viewBox="0 0 420 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 7 Q 12 -2 22 7 T 42 7 T 62 7 T 82 7 T 102 7 T 122 7 T 142 7 T 162 7 T 182 7 T 202 7 T 222 7 T 242 7 T 262 7 T 282 7 T 302 7 T 322 7 T 342 7 T 362 7 T 382 7 T 402 7 T 418 7" fill="none" stroke="#ff4f8b" stroke-width="4" stroke-linecap="round"/></svg>
-    <p>Handmade crochet bags, beanies, tops, earrings and more, made one stitch at a time in Nigeria. Pick something ready-made or ask for yours in your own colours.</p>
+    <span class="tag">Handmade in Nigeria 🧶</span>
+    <h1>Look crafty and <em>reminisce</em></h1>
+    <p>Crochet bags, beanies, tops, earrings and more, made one stitch at a time. Pick something ready-made or ask for yours in your own colours.</p>
     <div class="btns">
      <a class="btn" href="#shop">Shop the collection</a>
-     <a class="btn alt" id="heroWa" target="_blank" rel="noopener" href="#">Order on WhatsApp</a>
+     <button class="btn ghost" id="heroCustom">Order a custom piece</button>
+    </div>
+    <div class="stats">
+     <div><b>80+</b><span>orders delivered</span></div>
+     <div><b>2+ yrs</b><span>of crocheting</span></div>
+     <div><b>Worldwide</b><span>delivery</span></div>
     </div>
    </div>
-   <div class="slot heroimg"><span class="emo">🧶</span><img src="keila%20top.jpeg" alt="Crochet pieces from The Yarn Yard" onerror="this.remove()"></div>
+   <div class="collage" aria-hidden="true">
+    <div class="c c1"><img src="packed_sa_set.jpeg" alt="" onerror="this.remove()"></div>
+    <div class="c c2"><img src="Ruffle_hat_minimalist_.jpeg" alt="" onerror="this.remove()"></div>
+    <div class="c c3"><img src="hair-scrunchies-1.jpeg" alt="" onerror="this.remove()"></div>
+    <div class="badge">100%<br>handmade</div>
+   </div>
   </div>
  </div>
+ <div class="mq" aria-hidden="true"><div>
+  <span>Bags</span><span>✿</span><span>Beanies</span><span>✿</span><span>Tops</span><span>✿</span><span>Earrings</span><span>✿</span><span>Roses</span><span>✿</span><span>Custom orders</span><span>✿</span>
+  <span>Bags</span><span>✿</span><span>Beanies</span><span>✿</span><span>Tops</span><span>✿</span><span>Earrings</span><span>✿</span><span>Roses</span><span>✿</span><span>Custom orders</span><span>✿</span>
+ </div></div>
 
  <section id="shop">
   <div class="wrap">
-   <h2>The collection</h2>
-   <p class="lead">Everything is handmade. Prices are in naira. Tap Order on WhatsApp on any piece and the message is written for you.</p>
+   <span class="tag">The collection</span>
+   <h2>Pick your favourite</h2>
+   <p class="lead">Everything is handmade. Prices are in naira. Add pieces to your cart, then send your whole order on WhatsApp in one go.</p>
    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
    <div class="grid" id="grid"></div>
   </div>
@@ -126,39 +240,36 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
  <section id="custom">
   <div class="wrap">
    <div>
+    <span class="tag">Custom orders</span>
     <h2>Made just for you</h2>
-    <p>Want a beanie in your favourite colour or a top that fits you exactly? Send these details and Saadatu will tell you the price and timing.</p>
-    <ul>
-     <li>Your preferred colour</li>
-     <li>Your preferred size</li>
-     <li>Your measurements (for clothing)</li>
-     <li>Your location</li>
-     <li>How urgently you need it</li>
-    </ul>
-    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/2348140514329?text=Hi%20The%20Yarn%20Yard!%20I%27d%20like%20a%20custom%20order.%0AColour%3A%0ASize%3A%0AMeasurements%20(for%20clothing)%3A%0AMy%20location%3A%0AHow%20urgent%3A">Start a custom order</a>
+    <p class="lead">Want a beanie in your favourite colour or a top that fits you exactly? Add a custom order to your cart and tell us these details. Saadatu will confirm the price and timing.</p>
+    <ul><li>Preferred colour</li><li>Preferred size</li><li>Measurements (clothing)</li><li>Your location</li><li>How urgent</li></ul>
+    <button class="btn" id="customBtn">Start a custom order</button>
    </div>
-   <div class="slot" style="aspect-ratio:4/3;border-radius:28px;border:6px solid #fff;background:linear-gradient(135deg,var(--sun),var(--pink))"><span class="emo">🎨</span><img src="customized%20beanie.jpeg" alt="A custom crochet order" onerror="this.remove()"></div>
+   <div class="cimg"><img src="customized%20beanie.jpeg" alt="A custom crochet order" onerror="this.remove()"></div>
   </div>
  </section>
 
  <section id="how">
   <div class="wrap">
+   <span class="tag">Simple</span>
    <h2>How to order</h2>
-   <p class="lead">Ordering takes a few messages. No account needed.</p>
+   <p class="lead">No account needed.</p>
    <div class="steps">
-    <div class="step s1"><h3>Message us</h3><p>Send a DM on Instagram or TikTok, or text WhatsApp for the fastest reply.</p></div>
-    <div class="step s2"><h3>Pay by transfer</h3><p>Payment is by bank transfer. We send the account details when your order is confirmed.</p></div>
-    <div class="step s3"><h3>We deliver</h3><p>Nationwide by waybill, usually 2 to 3 working days. Delivery costs ₦4,500 to ₦6,000 depending on how far you are.</p></div>
-    <div class="step s4"><h3>Outside Nigeria?</h3><p>We ship worldwide. Message us with your country and we will sort out the details.</p></div>
+    <div class="step"><i>1</i><h3>Fill your cart</h3><p>Add everything you like, then tap Cart and fill in your delivery details.</p></div>
+    <div class="step"><i>2</i><h3>Send your order</h3><p>Your order opens in WhatsApp, already written out. Press send and Saadatu confirms prices and delivery.</p></div>
+    <div class="step"><i>3</i><h3>Pay by transfer</h3><p>Payment is by bank transfer. We send the account details when your order is confirmed.</p></div>
+    <div class="step"><i>4</i><h3>We deliver</h3><p>Nationwide by waybill in 2 to 3 working days, for ₦4,500 to ₦6,000 depending on distance. We also ship worldwide.</p></div>
    </div>
-   <p style="margin-top:22px;font-weight:800">Please note: all sales are final. We do not offer refunds.</p>
+   <p class="note">All sales are final. We do not offer refunds.</p>
   </div>
  </section>
 
  <section id="about">
   <div class="wrap">
-   <div class="slot aboutimg"><span class="emo">🧵</span><img src="saadatu.jpeg" alt="Saadatu, founder of The Yarn Yard" onerror="this.remove()"></div>
+   <div class="aimg"><img src="saadatu.jpeg" alt="Saadatu, founder of The Yarn Yard" onerror="this.remove()"></div>
    <div>
+    <span class="tag">Our story</span>
     <h2>Meet Saadatu</h2>
     <p>Being able to stand out and curate pieces with the same fingers everyone else has is the greatest blessing I could ever ask for. I started this brand with nothing but optimism. I had never crocheted any big piece before, but something deep inside assured me that I'd make the best out of just a hook and yarn.</p>
     <p>I have crocheted and packed over 80 orders, and each one has taught me improvement and given me more determination to build my brand beyond my own drafts.</p>
@@ -170,82 +281,151 @@ footer{padding:22px 0;text-align:center;font-size:.9rem;background:var(--ink);co
 
  <section id="contact">
   <div class="wrap">
+   <span class="tag">Contact</span>
    <h2>Say hello</h2>
-   <p>We reply every day from 10am to 9pm.</p>
-   <div class="social">
-    <a href="https://wa.me/2348140514329" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-    <a href="https://www.tiktok.com/@the_yarn_yard" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-    <a href="mailto:saadatundaman@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-    <a href="https://www.instagram.com/the.yarn_yard" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></a>
+   <p class="lead">We reply every day from 10am to 9pm.</p>
+   <div class="links">
+    <a class="box" href="https://wa.me/2348140514329?text=Hi%20The%20Yarn%20Yard!" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span><div><b>WhatsApp</b><span>0814 051 4329</span></div></a>
+    <a class="box" href="https://www.instagram.com/the.yarn_yard" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></svg></span><div><b>Instagram</b><span>@the.yarn_yard</span></div></a>
+    <a class="box" href="https://www.tiktok.com/@the_yarn_yard" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></span><div><b>TikTok</b><span>@the_yarn_yard</span></div></a>
+    <a class="box" href="mailto:saadatundaman@gmail.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><b>Email</b><span>saadatundaman@gmail.com</span></div></a>
    </div>
   </div>
  </section>
 </main>
 
-<footer>© The Yarn Yard. Handmade in Nigeria.</footer>
+<footer><div class="wrap"><p>© The Yarn Yard. Handmade in Nigeria.</p><p class="by">Website by <a href="https://abdulkareem-umarportfolio-01.vercel.app" target="_blank" rel="noopener">Umar</a><span id="byWa"></span></p></div></footer>
+
+<div class="ov" id="ov"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Your cart">
+ <div class="dh"><h3>Your cart</h3><button class="x" id="cx" aria-label="Close cart">✕</button></div>
+ <form id="of" style="display:contents">
+  <div class="db" id="db"></div>
+  <div class="df" id="df"></div>
+ </form>
+</aside>
+<div class="toast" id="toast"></div>
 
 <script>
 const PHONE="2348140514329";
-const wa=t=>"https://wa.me/"+PHONE+"?text="+encodeURIComponent(t);
+/* Developer WhatsApp for the footer credit: digits only, with country code, e.g. 2348012345678. Leave empty to hide the chat link. */
+const DEV_PHONE="";
+
+/* [name, price, category, [photo file names]] - photos sit in the same folder as index.html */
 const P=[
-["Sling Bag","₦13,000","Bags"],["Mini Sling Bag","₦10,000","Bags"],["Tote Bag","₦10,000 to ₦14,000","Bags"],["Sturdy Mini Bag","₦18,000","Bags"],["Ruffle Shoulder Bag","₦12,000","Bags"],["Shoulder Bag","₦8,000 to ₦10,000","Bags"],["Ruffle Mini Bag","₦8,000","Bags"],
-["Keila Top (Pink)","₦22,000","Tops and sets"],["SA Set","₦20,000 to ₦30,000","Tops and sets"],["Skirt and Top Combo","₦32,000","Tops and sets"],["Bikini","₦20,000 to ₦30,000","Tops and sets"],["Bralette","₦8,000","Tops and sets"],["Shirt","₦50,000","Tops and sets"],
-["Shrug and Ruffle Combo (Kids)","₦14,000","Kids"],["Kids Dress Set","₦25,000","Kids"],["Top and Skirt Set (Kids)","₦14,000","Kids"],["Customised Kids Beanie","₦8,000","Kids"],
-["Ruffle Hat","₦10,000","Hats and beanies"],["Minimalist Ruffle Hat","₦8,000","Hats and beanies"],["Slouchy Beanie","₦10,000","Hats and beanies"],["Customised Beanie","₦10,000","Hats and beanies"],["Spider-Man Beanie","₦10,000","Hats and beanies"],["Odumodu Hat","₦6,000","Hats and beanies"],["Bandana","₦6,000","Hats and beanies"],
-["Earrings","₦2,500","Accessories"],["Cherry Charms","₦2,500","Accessories"],["Airpods Pouch","₦2,500","Accessories"],["Scarf / Hair Clips","₦2,500","Accessories"],["Phone Pouch","₦7,000","Accessories"],["Power Bank Holder","₦3,500","Accessories"],
-["Single Rose","₦1,500","Roses"],["Bouquet of 10 Roses","₦15,000","Roses"],["Bouquet of 20 Roses","₦25,000","Roses"],
-["Coasters","Ask for a price","Home"]
+["Sling Bag","₦13,000","Bags",["sling bag.jpeg"]],
+["Mini Sling Bag","₦10,000","Bags",["sling bag2.jpeg"]],
+["Tote Bag","₦10,000 to ₦14,000","Bags",["Tote bag.jpeg"]],
+["Sturdy Mini Bag","₦18,000","Bags",["bag.jpeg"]],
+["Ruffle Shoulder Bag","₦12,000","Bags",["ruffle shoulder bag.jpeg"]],
+["Shoulder Bag","₦8,000 to ₦10,000","Bags",["shoulder bag.jpeg"]],
+["Ruffle Mini Bag","₦8,000","Bags",["ruffle bag mini.jpeg"]],
+["Keila Top (Pink)","₦22,000","Tops and sets",["keila top.jpeg"]],
+["SA Set","₦20,000 to ₦30,000","Tops and sets",["SA set.jpeg"]],
+["Packed SA Set","₦30,000","Tops and sets",["packed_sa_set.jpeg"]],
+["Skirt and Top Combo","₦32,000","Tops and sets",["skirt and top combo.jpeg"]],
+["Bikini","₦20,000 to ₦30,000","Tops and sets",["bikini.jpeg"]],
+["Bralette","₦8,000","Tops and sets",["bralete.jpeg"]],
+["Shirt","₦50,000","Tops and sets",["shirt.jpeg"]],
+["Shrug and Ruffle Combo (Kids)","₦14,000","Kids",["wrap.jpeg"]],
+["Kids Dress Set","₦25,000","Kids",["bby cloth.jpeg"]],
+["Top and Skirt Set (Kids)","₦14,000","Kids",["top and skirt for kids.jpeg"]],
+["Customised Kids Beanie","₦8,000","Kids",["customized beanie for kids.jpeg"]],
+["Ruffle Hat","₦10,000","Hats and beanies",["ruffle hats.jpeg"]],
+["Minimalist Ruffle Hat","₦8,000","Hats and beanies",["Ruffle_hat_minimalist_.jpeg"]],
+["Slouchy Beanie","₦10,000","Hats and beanies",["slouchy beanie.jpeg"]],
+["Customised Beanie","₦10,000","Hats and beanies",["customized beanie.jpeg"]],
+["Spider-Man Beanie","₦10,000","Hats and beanies",["spiderman beanie.jpeg"]],
+["Odumodu Hat","₦6,000","Hats and beanies",["odumodu hats.jpeg"]],
+["Bandana","₦6,000","Hats and beanies",["bandanas.jpeg"]],
+["Earrings","₦2,500","Accessories",["earings2.jpeg"]],
+["Hair / Scarf Clips","₦2,500","Accessories",["hair-scrunchies-1.jpeg","hair-scrunchies-2.jpeg","earings.jpeg"]],
+["Cherry Charms","₦2,500","Accessories",["cherry-charms-1.jpeg"]],
+["Airpods Pouch","₦2,500","Accessories",["airpods-pouch-1.jpeg","airpods-pouch-2.jpeg"]],
+["Phone Pouch","₦7,000","Accessories",["phone pouch.jpeg","phone_pouch1.jpeg"]],
+["Power Bank Holder","₦3,500","Accessories",["power bank holder.jpeg"]],
+["Single Rose","₦1,500","Roses",["single rose.jpeg"]],
+["Bouquet of 10 Roses","₦15,000","Roses",["bouque.jpeg","bouquet.jpeg"]],
+["Bouquet of 20 Roses","₦25,000","Roses",["bouquet of 20 reoses.jpeg"]],
+["Coasters","Ask for a price","Home",["coaster.jpeg"]]
 ];
 const EMO={"Bags":"👜","Tops and sets":"👚","Kids":"🧸","Hats and beanies":"🧶","Accessories":"🎀","Roses":"🌹","Home":"🧺"};
 const BG=["linear-gradient(135deg,#ff4f8b,#ffc233)","linear-gradient(135deg,#6f4cff,#12b5a6)","linear-gradient(135deg,#ffc233,#ff4f8b)","linear-gradient(135deg,#12b5a6,#ffc233)","linear-gradient(135deg,#ffc233,#6f4cff)"];
-const IMG={
-"Sling Bag":"sling bag.jpeg",
-"Mini Sling Bag":"sling bag2.jpeg",
-"Tote Bag":"Tote bag.jpeg",
-"Sturdy Mini Bag":"bag.jpeg",
-"Ruffle Shoulder Bag":"ruffle shoulder bag.jpeg",
-"Shoulder Bag":"shoulder bag.jpeg",
-"Ruffle Mini Bag":"ruffle bag mini.jpeg",
-"Keila Top (Pink)":"keila top.jpeg",
-"SA Set":"SA set.jpeg",
-"Skirt and Top Combo":"skirt and top combo.jpeg",
-"Bikini":"bikini.jpeg",
-"Bralette":"bralete.jpeg",
-"Shirt":"shirt.jpeg",
-"Shrug and Ruffle Combo (Kids)":"wrap.jpeg",
-"Kids Dress Set":"bby cloth.jpeg",
-"Top and Skirt Set (Kids)":"top and skirt for kids.jpeg",
-"Customised Kids Beanie":"customized beanie for kids.jpeg",
-"Ruffle Hat":"ruffle hats.jpeg",
-"Minimalist Ruffle Hat":"ruffle hats.jpeg",
-"Slouchy Beanie":"slouchy beanie.jpeg",
-"Customised Beanie":"customized beanie.jpeg",
-"Spider-Man Beanie":"spiderman beanie.jpeg",
-"Odumodu Hat":"odumodu hats.jpeg",
-"Bandana":"bandanas.jpeg",
-"Earrings":"earings.jpeg",
-"Cherry Charms":"cherry charms.jpeg",
-"Airpods Pouch":"Airpods pouch.jpeg",
-"Scarf / Hair Clips":"bow.jpeg",
-"Phone Pouch":"phone pouch.jpeg",
-"Power Bank Holder":"power bank holder.jpeg",
-"Single Rose":"single rose.jpeg",
-"Bouquet of 10 Roses":"bouque.jpeg",
-"Bouquet of 20 Roses":"bouquet of 20 reoses.jpeg",
-"Coasters":"coaster.jpeg"
-};
-const imgSrc=n=>encodeURIComponent(IMG[n]||"none.jpeg");
+const $=id=>document.getElementById(id);
+const num=s=>/^₦[\d,]+$/.test(s)?+s.replace(/\D/g,""):null;
+const naira=n=>"₦"+n.toLocaleString("en-NG");
+const enc=f=>encodeURIComponent(f);
 const cats=["All",...new Set(P.map(p=>p[2]))];
-let cur="All";
+let cur="All",cart=[];
+try{cart=JSON.parse(localStorage.getItem("yy_cart")||"[]")}catch(e){}
+const save=()=>{try{localStorage.setItem("yy_cart",JSON.stringify(cart))}catch(e){}};
+
+function fix(s){const i=s.querySelectorAll("img");if(i.length&&!s.querySelector("img.on"))i[0].classList.add("on")}
 function draw(){
- document.getElementById("chips").innerHTML=cats.map(c=>`<button class="chip" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join("");
- document.getElementById("grid").innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==="All"||p[2]===cur).map(([p,i])=>
- `<article class="card"><div class="slot" style="background:${BG[i%5]}"><span class="emo">${EMO[p[2]]}</span><img src="${imgSrc(p[0])}" alt="${p[0]}" loading="lazy" onerror="this.remove()"></div><div class="info"><h3>${p[0]}</h3><p class="price">${p[1]}</p><a class="btn sm" target="_blank" rel="noopener" href="${wa("Hi The Yarn Yard! I'd like to order: "+p[0]+" ("+p[1]+")")}">Order on WhatsApp</a></div></article>`).join("");
+ $("chips").innerHTML=cats.map(c=>`<button type="button" class="chip" aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join("");
+ $("grid").innerHTML=P.map((p,i)=>[p,i]).filter(([p])=>cur==="All"||p[2]===cur).map(([p,i])=>{
+  const im=p[3];
+  return `<article class="card"><div class="slot" style="background:${BG[i%5]}"><span class="emo">${EMO[p[2]]}</span>${im.map((f,k)=>`<img class="${k?"":"on"}" src="${enc(f)}" alt="${p[0]}" loading="lazy" onerror="var s=this.parentNode;this.remove();fix(s)">`).join("")}${im.length>1?`<button type="button" class="ar l" aria-label="Previous photo">‹</button><button type="button" class="ar r" aria-label="Next photo">›</button><span class="cnt">${im.length} photos</span>`:""}</div><div class="info"><h3>${p[0]}</h3><p class="price">${p[1]}</p><button type="button" class="btn sm add" data-i="${i}">Add to cart</button></div></article>`}).join("");
 }
-document.getElementById("chips").addEventListener("click",e=>{const c=e.target.dataset.c;if(c){cur=c;draw();}});
-draw();
-document.getElementById("heroWa").href=wa("Hi The Yarn Yard! I'd like to place an order.");
-document.getElementById("contactWa").href=wa("Hi The Yarn Yard!");
+$("chips").addEventListener("click",e=>{const c=e.target.dataset.c;if(c){cur=c;draw()}});
+$("grid").addEventListener("click",e=>{
+ const a=e.target.closest(".add");
+ if(a){const p=P[+a.dataset.i];addItem(p[0],p[1],p[3][0]);return}
+ const b=e.target.closest(".ar");if(!b)return;
+ const im=[...b.parentNode.querySelectorAll("img")];if(im.length<2)return;
+ let k=im.findIndex(x=>x.classList.contains("on"));im[k].classList.remove("on");
+ k=(k+(b.classList.contains("r")?1:im.length-1))%im.length;im[k].classList.add("on")});
+
+/* cart */
+function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),1800)}
+function addItem(n,p,img,open){const x=cart.find(c=>c.n===n);x?x.q++:cart.push({n,p,img:img||"",q:1});save();renderCart();const cc=$("cc");cc.classList.remove("bump");void cc.offsetWidth;cc.classList.add("bump");open?openCart():toast("Added to cart: "+n)}
+function openCart(){$("drawer").classList.add("show");$("ov").classList.add("show");renderCart()}
+function closeCart(){$("drawer").classList.remove("show");$("ov").classList.remove("show")}
+function renderCart(){
+ const n=cart.reduce((a,c)=>a+c.q,0);$("cc").textContent=n;
+ if(!cart.length){$("db").innerHTML=`<div class="empty"><p style="font-size:2.5rem">🛍</p><p>Your cart is empty.</p><p>Add something you love from the collection.</p></div>`;$("df").innerHTML=`<button type="button" class="btn" id="shopmore">Browse the collection</button>`;return}
+ const fixed=cart.reduce((a,c)=>a+(num(c.p)||0)*c.q,0),varies=cart.some(c=>num(c.p)===null);
+ const fm=$("db").querySelector("#fm");const keep=fm?[...fm.elements].map(e=>e.value):[];
+ $("db").innerHTML=cart.map((c,i)=>`<div class="it"><div class="th">${c.img?`<img src="${enc(c.img)}" alt="" onerror="this.remove()">`:""}</div><div><h4>${c.n}</h4><small>${c.p}</small><div class="q"><button type="button" data-q="${i}" data-d="-1" aria-label="Less">−</button><b>${c.q}</b><button type="button" data-q="${i}" data-d="1" aria-label="More">+</button></div></div><button type="button" class="rm" data-r="${i}">Remove</button></div>`).join("")+
+ `<div class="fm" id="fm"><h4>Your details</h4><input name="name" placeholder="Full name" required autocomplete="name"><input name="loc" placeholder="Delivery location (city and state, or country)" required autocomplete="street-address"><textarea name="notes" placeholder="Notes: colours, sizes, measurements, how urgent. Needed for custom orders."></textarea></div>`;
+ [...$("fm").elements].forEach((e,i)=>{if(keep[i])e.value=keep[i]});
+ $("df").innerHTML=`<div class="tot"><span>Items total</span><span>${fixed?naira(fixed):"To be confirmed"}</span></div><small>${varies?"Some items have a price range or are priced on request. Saadatu will confirm the final price. ":""}Delivery (₦4,500 to ₦6,000 in Nigeria) is confirmed on WhatsApp.</small><button class="btn" type="submit">Send order on WhatsApp</button>`;
+}
+$("db").addEventListener("click",e=>{
+ const q=e.target.closest("[data-q]"),r=e.target.closest("[data-r]");
+ if(q){const c=cart[+q.dataset.q];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.q,1)}
+ else if(r)cart.splice(+r.dataset.r,1);else return;
+ save();renderCart()});
+$("df").addEventListener("click",e=>{const i=e.target.id;if(i==="shopmore"){closeCart();location.hash="#shop"}else if(i==="clr"){cart=[];save();renderCart();closeCart()}else if(i==="back")renderCart()});
+$("cartbtn").onclick=openCart;$("cx").onclick=closeCart;$("ov").onclick=closeCart;
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+function custom(){addItem("Custom order","Price quoted by Saadatu","customized beanie.jpeg",true);setTimeout(()=>{const t=document.querySelector("#fm textarea");if(t&&!t.value){t.placeholder="Tell us what you want: item, colour, size, measurements (for clothing), your location and how urgent.";t.focus()}},320)}
+$("customBtn").onclick=custom;$("heroCustom").onclick=custom;
+
+$("of").addEventListener("submit",e=>{
+ e.preventDefault();
+ if(!cart.length)return;
+ const f=Object.fromEntries(new FormData($("of")));
+ const fixed=cart.reduce((a,c)=>a+(num(c.p)||0)*c.q,0);
+ const lines=cart.map(c=>`- ${c.n} x${c.q} (${c.p})`).join("\n");
+ const msg=`Hi The Yarn Yard! I'd like to place an order.\n\nName: ${f.name}\nDelivery: ${f.loc}\n\nItems:\n${lines}\n\nItems total (fixed prices only): ${fixed?naira(fixed):"to be confirmed"}\n\nNotes: ${f.notes||"-"}`;
+ window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
+ $("db").innerHTML=`<div class="ok"><p style="font-size:3rem">💬</p><h3>Almost done!</h3><p>Your order is written out in WhatsApp. Press <b>send</b> there and Saadatu will reply to confirm prices, delivery and payment.</p></div>`;
+ $("df").innerHTML=`<button type="button" class="btn" id="clr">Done, clear my cart</button><button type="button" class="btn ghost" id="back" style="margin-top:10px">Back to my cart</button>`;
+});
+
+/* menu */
+const nav=$("nav"),mb=$("menu");
+mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
+nav.addEventListener("click",e=>{if(e.target.tagName==="A"){nav.classList.remove("open");mb.setAttribute("aria-expanded",false)}});
+/* motion */
+const SEL=".hero .tag,.hero h1,.hero p,.hero .btns,.stats>div,.collage,.tag,h2,.lead,.chips,.card,#custom ul,#custom .btn,.cimg,.step,.note,.aimg,#about .wrap>div:last-child>p,.box";
+const io=document.documentElement.classList.contains("js")?new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;const el=en.target;el.classList.add("in");io.unobserve(el);el.addEventListener("transitionend",ev=>{if(ev.target!==el)return;el.classList.remove("rv","in");el.style.removeProperty("--d")})}),{threshold:.12,rootMargin:"0px 0px -6% 0px"}):null;
+function reveal(root){if(!io)return;root.querySelectorAll(SEL).forEach(el=>{if(el.dataset.rv)return;el.dataset.rv=1;el.style.setProperty("--d",Math.min([...el.parentNode.children].indexOf(el)%4,3)*.08+"s");el.classList.add("rv");io.observe(el)})}
+const _draw=draw;draw=function(){_draw();reveal($("grid"))};
+let tk=0;addEventListener("scroll",()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;const h=document.documentElement;$("pg").style.width=(scrollY/(h.scrollHeight-innerHeight||1)*100)+"%";$("hd").classList.toggle("sc",scrollY>10)})},{passive:true});
+if(DEV_PHONE)$("byWa").innerHTML=` <a class="chat" href="https://wa.me/${DEV_PHONE}?text=${encodeURIComponent("Hi Umar, I saw The Yarn Yard website and I would like a website for my business.")}" target="_blank" rel="noopener">Need a website? Chat with me</a>`;
+draw();renderCart();reveal(document);
 </script>
 </body>
 </html>
