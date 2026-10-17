@@ -146,7 +146,7 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
 .df{padding:16px 22px 20px;border-top:1px solid #2a1b3d14;background:#fffafc}
 .tot{display:flex;justify-content:space-between;font-weight:800;font-size:1.1rem;margin-bottom:4px}
 .df small{display:block;color:var(--mut);margin-bottom:12px;font-size:.85rem;line-height:1.4}
-.df .btn{width:100%}
+.df .btn{width:100%;text-align:center}
 .ok{text-align:center;padding:40px 6px}
 .ok h3{font-size:1.7rem;margin:12px 0 8px}
 .ok p{color:var(--mut);margin-bottom:10px}
@@ -206,7 +206,7 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
     <p>Crochet bags, beanies, tops, earrings and more, made one stitch at a time. Pick something ready-made or ask for yours in your own colours.</p>
     <div class="btns">
      <a class="btn" href="#shop">Shop the collection</a>
-     <button class="btn ghost" id="heroCustom">Order a custom piece</button>
+     <a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/2348140514329?text=Hi%20The%20Yarn%20Yard!%20I%27d%20like%20a%20custom%20order.%0AItem%3A%0AColour%3A%0ASize%3A%0AMeasurements%20(for%20clothing)%3A%0AMy%20location%3A%0AHow%20urgent%3A">Order a custom piece</a>
     </div>
     <div class="stats">
      <div><b>80+</b><span>orders delivered</span></div>
@@ -215,8 +215,8 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
     </div>
    </div>
    <div class="collage" aria-hidden="true">
-    <div class="c c1"><img src="packed_sa_set.jpeg" alt="" onerror="this.remove()"></div>
-    <div class="c c2"><img src="Ruffle_hat_minimalist_.jpeg" alt="" onerror="this.remove()"></div>
+    <div class="c c1"><img src="packed%20sa%20set.jpeg" alt="" onerror="this.remove()"></div>
+    <div class="c c2"><img src="Ruffle%20hat(minimalist).jpeg" alt="" onerror="this.remove()"></div>
     <div class="c c3"><img src="hair-scrunchies-1.jpeg" alt="" onerror="this.remove()"></div>
     <div class="badge">100%<br>handmade</div>
    </div>
@@ -242,9 +242,9 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
    <div>
     <span class="tag">Custom orders</span>
     <h2>Made just for you</h2>
-    <p class="lead">Want a beanie in your favourite colour or a top that fits you exactly? Add a custom order to your cart and tell us these details. Saadatu will confirm the price and timing.</p>
+    <p class="lead">Want a beanie in your favourite colour or a top that fits you exactly? Send these details on WhatsApp and Saadatu will confirm the price and timing.</p>
     <ul><li>Preferred colour</li><li>Preferred size</li><li>Measurements (clothing)</li><li>Your location</li><li>How urgent</li></ul>
-    <button class="btn" id="customBtn">Start a custom order</button>
+    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/2348140514329?text=Hi%20The%20Yarn%20Yard!%20I%27d%20like%20a%20custom%20order.%0AItem%3A%0AColour%3A%0ASize%3A%0AMeasurements%20(for%20clothing)%3A%0AMy%20location%3A%0AHow%20urgent%3A">Start a custom order</a>
    </div>
    <div class="cimg"><img src="customized%20beanie.jpeg" alt="A custom crochet order" onerror="this.remove()"></div>
   </div>
@@ -256,7 +256,7 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
    <h2>How to order</h2>
    <p class="lead">No account needed.</p>
    <div class="steps">
-    <div class="step"><i>1</i><h3>Fill your cart</h3><p>Add everything you like, then tap Cart and fill in your delivery details.</p></div>
+    <div class="step"><i>1</i><h3>Fill your cart</h3><p>Add everything you like, then tap Cart and press Order on WhatsApp.</p></div>
     <div class="step"><i>2</i><h3>Send your order</h3><p>Your order opens in WhatsApp, already written out. Press send and Saadatu confirms prices and delivery.</p></div>
     <div class="step"><i>3</i><h3>Pay by transfer</h3><p>Payment is by bank transfer. We send the account details when your order is confirmed.</p></div>
     <div class="step"><i>4</i><h3>We deliver</h3><p>Nationwide by waybill in 2 to 3 working days, for ₦4,500 to ₦6,000 depending on distance. We also ship worldwide.</p></div>
@@ -299,10 +299,8 @@ header.sc{box-shadow:0 10px 26px -14px #2a1b3d66}
 <div class="ov" id="ov"></div>
 <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Your cart">
  <div class="dh"><h3>Your cart</h3><button class="x" id="cx" aria-label="Close cart">✕</button></div>
- <form id="of" style="display:contents">
-  <div class="db" id="db"></div>
-  <div class="df" id="df"></div>
- </form>
+ <div class="db" id="db"></div>
+ <div class="df" id="df"></div>
 </aside>
 <div class="toast" id="toast"></div>
 
@@ -322,7 +320,7 @@ const P=[
 ["Ruffle Mini Bag","₦8,000","Bags",["ruffle bag mini.jpeg"]],
 ["Keila Top (Pink)","₦22,000","Tops and sets",["keila top.jpeg"]],
 ["SA Set","₦20,000 to ₦30,000","Tops and sets",["SA set.jpeg"]],
-["Packed SA Set","₦30,000","Tops and sets",["packed_sa_set.jpeg"]],
+["Packed SA Set","₦30,000","Tops and sets",["packed sa set.jpeg"]],
 ["Skirt and Top Combo","₦32,000","Tops and sets",["skirt and top combo.jpeg"]],
 ["Bikini","₦20,000 to ₦30,000","Tops and sets",["bikini.jpeg"]],
 ["Bralette","₦8,000","Tops and sets",["bralete.jpeg"]],
@@ -332,7 +330,7 @@ const P=[
 ["Top and Skirt Set (Kids)","₦14,000","Kids",["top and skirt for kids.jpeg"]],
 ["Customised Kids Beanie","₦8,000","Kids",["customized beanie for kids.jpeg"]],
 ["Ruffle Hat","₦10,000","Hats and beanies",["ruffle hats.jpeg"]],
-["Minimalist Ruffle Hat","₦8,000","Hats and beanies",["Ruffle_hat_minimalist_.jpeg"]],
+["Minimalist Ruffle Hat","₦8,000","Hats and beanies",["Ruffle hat(minimalist).jpeg"]],
 ["Slouchy Beanie","₦10,000","Hats and beanies",["slouchy beanie.jpeg"]],
 ["Customised Beanie","₦10,000","Hats and beanies",["customized beanie.jpeg"]],
 ["Spider-Man Beanie","₦10,000","Hats and beanies",["spiderman beanie.jpeg"]],
@@ -345,8 +343,8 @@ const P=[
 ["Phone Pouch","₦7,000","Accessories",["phone pouch.jpeg","phone_pouch1.jpeg"]],
 ["Power Bank Holder","₦3,500","Accessories",["power bank holder.jpeg"]],
 ["Single Rose","₦1,500","Roses",["single rose.jpeg"]],
-["Bouquet of 10 Roses","₦15,000","Roses",["bouque.jpeg","bouquet.jpeg"]],
-["Bouquet of 20 Roses","₦25,000","Roses",["bouquet of 20 reoses.jpeg"]],
+["Bouquet of 10 Roses","₦15,000","Roses",["bouquet.jpeg"]],
+["Bouquet of 20 Roses","₦25,000","Roses",["bouquet of 20 reoses.jpeg","bouque.jpeg"]],
 ["Coasters","Ask for a price","Home",["coaster.jpeg"]]
 ];
 const EMO={"Bags":"👜","Tops and sets":"👚","Kids":"🧸","Hats and beanies":"🧶","Accessories":"🎀","Roses":"🌹","Home":"🧺"};
@@ -381,39 +379,26 @@ function toast(t){const e=$("toast");e.textContent=t;e.classList.add("show");cle
 function addItem(n,p,img,open){const x=cart.find(c=>c.n===n);x?x.q++:cart.push({n,p,img:img||"",q:1});save();renderCart();const cc=$("cc");cc.classList.remove("bump");void cc.offsetWidth;cc.classList.add("bump");open?openCart():toast("Added to cart: "+n)}
 function openCart(){$("drawer").classList.add("show");$("ov").classList.add("show");renderCart()}
 function closeCart(){$("drawer").classList.remove("show");$("ov").classList.remove("show")}
+function waLink(){
+ const fixed=cart.reduce((a,c)=>a+(num(c.p)||0)*c.q,0),varies=cart.some(c=>num(c.p)===null);
+ const lines=cart.map(c=>`- ${c.n} x${c.q} (${c.p})`).join("\n");
+ return "https://wa.me/"+PHONE+"?text="+encodeURIComponent(`Hi The Yarn Yard! I'd like to order:\n\n${lines}\n\nItems total: ${fixed?naira(fixed):"to be confirmed"}${fixed&&varies?" + items with a price range":""}\n\nMy name:\nMy delivery location:`);
+}
 function renderCart(){
  const n=cart.reduce((a,c)=>a+c.q,0);$("cc").textContent=n;
  if(!cart.length){$("db").innerHTML=`<div class="empty"><p style="font-size:2.5rem">🛍</p><p>Your cart is empty.</p><p>Add something you love from the collection.</p></div>`;$("df").innerHTML=`<button type="button" class="btn" id="shopmore">Browse the collection</button>`;return}
  const fixed=cart.reduce((a,c)=>a+(num(c.p)||0)*c.q,0),varies=cart.some(c=>num(c.p)===null);
- const fm=$("db").querySelector("#fm");const keep=fm?[...fm.elements].map(e=>e.value):[];
- $("db").innerHTML=cart.map((c,i)=>`<div class="it"><div class="th">${c.img?`<img src="${enc(c.img)}" alt="" onerror="this.remove()">`:""}</div><div><h4>${c.n}</h4><small>${c.p}</small><div class="q"><button type="button" data-q="${i}" data-d="-1" aria-label="Less">−</button><b>${c.q}</b><button type="button" data-q="${i}" data-d="1" aria-label="More">+</button></div></div><button type="button" class="rm" data-r="${i}">Remove</button></div>`).join("")+
- `<div class="fm" id="fm"><h4>Your details</h4><input name="name" placeholder="Full name" required autocomplete="name"><input name="loc" placeholder="Delivery location (city and state, or country)" required autocomplete="street-address"><textarea name="notes" placeholder="Notes: colours, sizes, measurements, how urgent. Needed for custom orders."></textarea></div>`;
- [...$("fm").elements].forEach((e,i)=>{if(keep[i])e.value=keep[i]});
- $("df").innerHTML=`<div class="tot"><span>Items total</span><span>${fixed?naira(fixed):"To be confirmed"}</span></div><small>${varies?"Some items have a price range or are priced on request. Saadatu will confirm the final price. ":""}Delivery (₦4,500 to ₦6,000 in Nigeria) is confirmed on WhatsApp.</small><button class="btn" type="submit">Send order on WhatsApp</button>`;
+ $("db").innerHTML=cart.map((c,i)=>`<div class="it"><div class="th">${c.img?`<img src="${enc(c.img)}" alt="" onerror="this.remove()">`:""}</div><div><h4>${c.n}</h4><small>${c.p}</small><div class="q"><button type="button" data-q="${i}" data-d="-1" aria-label="Less">−</button><b>${c.q}</b><button type="button" data-q="${i}" data-d="1" aria-label="More">+</button></div></div><button type="button" class="rm" data-r="${i}">Remove</button></div>`).join("");
+ $("df").innerHTML=`<div class="tot"><span>Items total</span><span>${fixed?naira(fixed):"To be confirmed"}</span></div><small>${varies?"Some items have a price range or are priced on request. Saadatu will confirm the final price. ":""}Delivery (₦4,500 to ₦6,000 in Nigeria) is confirmed on WhatsApp.</small><a class="btn" id="ord" target="_blank" rel="noopener" href="${waLink()}">Order on WhatsApp</a><button type="button" class="rm" id="clr" style="display:block;margin:12px auto 0">Clear cart</button>`;
 }
 $("db").addEventListener("click",e=>{
  const q=e.target.closest("[data-q]"),r=e.target.closest("[data-r]");
  if(q){const c=cart[+q.dataset.q];c.q+=+q.dataset.d;if(c.q<1)cart.splice(+q.dataset.q,1)}
  else if(r)cart.splice(+r.dataset.r,1);else return;
  save();renderCart()});
-$("df").addEventListener("click",e=>{const i=e.target.id;if(i==="shopmore"){closeCart();location.hash="#shop"}else if(i==="clr"){cart=[];save();renderCart();closeCart()}else if(i==="back")renderCart()});
+$("df").addEventListener("click",e=>{const i=e.target.id;if(i==="shopmore"){closeCart();location.hash="#shop"}else if(i==="clr"){cart=[];save();renderCart();closeCart()}});
 $("cartbtn").onclick=openCart;$("cx").onclick=closeCart;$("ov").onclick=closeCart;
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
-function custom(){addItem("Custom order","Price quoted by Saadatu","customized beanie.jpeg",true);setTimeout(()=>{const t=document.querySelector("#fm textarea");if(t&&!t.value){t.placeholder="Tell us what you want: item, colour, size, measurements (for clothing), your location and how urgent.";t.focus()}},320)}
-$("customBtn").onclick=custom;$("heroCustom").onclick=custom;
-
-$("of").addEventListener("submit",e=>{
- e.preventDefault();
- if(!cart.length)return;
- const f=Object.fromEntries(new FormData($("of")));
- const fixed=cart.reduce((a,c)=>a+(num(c.p)||0)*c.q,0);
- const lines=cart.map(c=>`- ${c.n} x${c.q} (${c.p})`).join("\n");
- const msg=`Hi The Yarn Yard! I'd like to place an order.\n\nName: ${f.name}\nDelivery: ${f.loc}\n\nItems:\n${lines}\n\nItems total (fixed prices only): ${fixed?naira(fixed):"to be confirmed"}\n\nNotes: ${f.notes||"-"}`;
- window.open("https://wa.me/"+PHONE+"?text="+encodeURIComponent(msg),"_blank");
- $("db").innerHTML=`<div class="ok"><p style="font-size:3rem">💬</p><h3>Almost done!</h3><p>Your order is written out in WhatsApp. Press <b>send</b> there and Saadatu will reply to confirm prices, delivery and payment.</p></div>`;
- $("df").innerHTML=`<button type="button" class="btn" id="clr">Done, clear my cart</button><button type="button" class="btn ghost" id="back" style="margin-top:10px">Back to my cart</button>`;
-});
-
 /* menu */
 const nav=$("nav"),mb=$("menu");
 mb.addEventListener("click",()=>{const o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",o)});
